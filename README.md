@@ -81,7 +81,7 @@ an unlimited number of samples.
 INPUT:
       Data frame built from the import of a csv file
       
-      Example: dataset <- read.csv("data.csv")
+      Example: dataset <- read.csv("R_test_data.csv")
       
       The first row of this file must contain column names, then one row for each sample to be solved.
       The columns names must be:
