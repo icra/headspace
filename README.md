@@ -38,6 +38,7 @@ Rheadspace_table.R is the same function prepared to be used with a data.frame as
 
 ####################################################################
 ####################################################################
+
 Rheadspace.R
 
 R function to calculate pCO2 in a water sample (ppmv) using a complete headspace method accounting for the
@@ -56,9 +57,8 @@ INPUT:
 
 EXAMPLE OF USE:
 
-source("Rheadspace.R")
-
-pCO2 <- Rheadspace(0,80,20,25,1050,30,30)
+      source("Rheadspace.R")
+      pCO2 <- Rheadspace(0,80,20,25,1050,30,30)
 
 OUTPUT: a data frame containing:
 
@@ -108,11 +108,9 @@ INPUT:
 
 EXAMPLE OF USE:
 
-source("Rheadspace_table.R")
-
-dataset <- read.csv("R_test_data.csv")
-
-pCO2 <- Rheadspace_table(dataset)
+      source("Rheadspace_table.R")
+      dataset <- read.csv("R_test_data.csv")
+      pCO2 <- Rheadspace_table(dataset)
 
 OUTPUT: a data frame containing:
 
