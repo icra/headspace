@@ -55,10 +55,13 @@ INPUT:
         7. Volume of water in the headspace vessel (mL)
 
 EXAMPLE OF USE:
+
 source("Rheadspace.R")
+
 pCO2 <- Rheadspace(0,80,20,25,1050,30,30)
 
 OUTPUT: a data frame containing:
+
      1. pCO2 complete headspace (ppmv) # pCO2 calculated using the complete headspace method accounting for the carbonate equilibrium
      2. pH  # pH calculated for the sanple at in situ field conditions (using the complete headspace method)
      3. pCO2 simple headspace (ppmv)  # pCO2 calculated using the simple headspace method NOT accounting for the carbonate equilibrium
@@ -68,6 +71,7 @@ OUTPUT: a data frame containing:
 
 ####################################################################
 ####################################################################
+
 Rheadspace_table.R
 
 R function to calculate pCO2 in water samples (ppmv) using a complete headspace method accounting for the
@@ -76,7 +80,9 @@ an unlimited number of samples.
 
 INPUT:
       Data frame built from the import of a csv file
+      
       Example: dataset <- read.csv("data.csv")
+      
       The first row of this file must contain column names, then one row for each sample to be solved.
       The columns names must be:
 
@@ -101,11 +107,15 @@ INPUT:
         Volume.water #Volume of water in the headspace vessel (mL)
 
 EXAMPLE OF USE:
+
 source("Rheadspace_table.R")
+
 dataset <- read.csv("R_test_data.csv")
+
 pCO2 <- Rheadspace_table(dataset)
 
 OUTPUT: a data frame containing:
+
      1. Sample IDs
      2. pCO2 complete headspace (ppmv) # pCO2 calculated using the complete headspace method accounting for the carbonate equilibrium
      3. pH  # pH calculated for the sanple at in situ field conditions (using the complete headspace method)
@@ -117,6 +127,7 @@ OUTPUT: a data frame containing:
 
 
 ####################################################################
+
  NOTE ON BAROMETRIC PRESSURE: this script calculates the fractional abundance of CO2 in a gas phase in
                               equilibrium with a water sample expressed as ppmv. To express this in terms
                               of a true partial pressure (e.g., atmospheres) or concentration (e.g., mol CO2/L)
@@ -127,6 +138,7 @@ OUTPUT: a data frame containing:
 
  NOTE ON SALINITY: because our choice for the values of the constants of the carbonate equilinrium,
                    this script shoul be used ONLY for freshwater samples.
+                   
 ####################################################################
 
 
