@@ -136,8 +136,8 @@ OUTPUT: a data frame containing:
                               CO2 as ppmv, note that this is equivalent to a partial pressure (e.g., micro-atmospheres)
                               ONLY in case of barometric pressure = 1 atm.
 
- NOTE ON SALINITY: because our choice for the values of the constants of the carbonate equilinrium,
-                   this script shoul be used ONLY for freshwater samples.
+ NOTE ON SALINITY: because our choice for the values of the constants of the carbonate equilibrium,
+                   this script should be used ONLY for freshwater samples.
                    
 ####################################################################
 
