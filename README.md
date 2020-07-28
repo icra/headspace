@@ -3,7 +3,9 @@ Scripts to calculate pCO2 in freshwater samples using a complete headspace metho
 
 # Authors
 Rafael Marcé (Catalan Institute for Water Research - ICRA) - rmarce@icra.cat
+
 Jihyeon Kim (Université du Québec à Montréal - UQAM) 
+
 Yves T. Prairie (Université du Québec à Montréal - UQAM)
 
 # License
