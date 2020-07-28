@@ -22,6 +22,8 @@ Koschorreck, M., Y.T. Prairie, J. Kim, and R. Marcé. 2020. Technical note: CO2 
 
 "headspace" comes as a collection of R scripts (Rheadspace.R and Rheadspace_table.R) and a JMP SAS script. R scripts are command line tools, while the JMP SAS script runs within JMP as a user-friendly GUI. 
 
+The distribution also includes a test dataset for R (R_test_data.csv and R_test_data_with_results.csv), as well as an additional file corresponding to the data shown in Figure 4 of the paper mentioned in the section # License  
+
 # Prerequisites
 
 R scripts have been tested in R version 3.6.3. No additional libraries beyond those included in customary R installations are required.
