@@ -1,78 +1,35 @@
 # headspace
-Scripts to calculate pCO2 concentration in freshwater samples using a complete headspace method accounting for the carbonate equilibrium
+Scripts to calculate pCO2 in freshwater samples using a complete headspace method accounting for the carbonate equilibrium
+
+# Authors
+Rafael Marcé (Catalan Institute for Water Research - ICRA) - rmarce@icra.cat
+Jihyeon Kim (Université du Québec à Montréal - UQAM) 
+Yves T. Prairie (Université du Québec à Montréal - UQAM)
+
+# License
+This code is shared under GNU GENERAL PUBLIC LICENSE Version 3. 
+Refer to the LICENSE file in the Github repository for details.
+Please, when using this software for scientific purposes, cite this work as a source:
+
+Koschorreck, M., Y.T. Prairie, J. Kim, and R. Marcé. 2020. Technical note: CO2 is not like CH4 – limits of the headspace method to analyse pCO2 in water. Biogeosciences, in revision
+
+# Getting Started
+
+"headspace" is a collection of R and JMP scripts to calculate pCO2 in freshwater samples using data from headspace analysis. "headspace" scripts account for the carbonate equilibrium in the equilibration vessel, a frequently disregarded issue when applying the headspace method in freshwater research. We offer a collection of tools to calculate pCO2 accounting for carbonate equilibria, and also to calculate the error associated with the use of a headspace analysis that does not account for the carbonate equilibria.
+
+"headspace" comes as a collection of R scripts (Rheadspace.R and Rheadspace_table.R) and a JMP SAS script. R scripts are command line tools, while the JMP SAS script runs within JMP as a user-friendly GUI. 
+
+# Prerequisites
+
+R scripts have been tested in R version 3.6.3. No additional libraries beyond those included in customary R installations are required.
+
+The JMP script requires XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+INSTALLING INSTRUCTIONS FOR JMP????
+
+# R scripts
 
 
 
 
+# JMP script
 
-
-
-#IN PROGRESS#
-
-
-
-Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-Prerequisites
-
-What things you need to install the software and how to install them
-
-Give examples
-
-Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-Give the example
-
-And repeat
-
-until finished
-
-End with an example of getting some data out of the system or using it for a little demo
-Running the tests
-
-Explain how to run the automated tests for this system
-Break down into end to end tests
-
-Explain what these tests test and why
-
-Give an example
-
-And coding style tests
-
-Explain what these tests test and why
-
-Give an example
-
-Deployment
-
-Add additional notes about how to deploy this on a live system
-Built With
-
-    Dropwizard - The web framework used
-    Maven - Dependency Management
-    ROME - Used to generate RSS Feeds
-
-Contributing
-
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
-Versioning
-
-We use SemVer for versioning. For the versions available, see the tags on this repository.
-Authors
-
-    Billie Thompson - Initial work - PurpleBooth
-
-See also the list of contributors who participated in this project.
-License
-
-This project is licensed under the MIT License - see the LICENSE.md file for details
-Acknowledgments
-
-    Hat tip to anyone whose code was used
-    Inspiration
-    etc
