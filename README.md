@@ -11,6 +11,7 @@ Yves T. Prairie (Université du Québec à Montréal - UQAM)
 # License
 This code is shared under GNU GENERAL PUBLIC LICENSE Version 3. 
 Refer to the LICENSE file in the Github repository for details.
+
 Please, when using this software for scientific purposes, cite this work as a source:
 
 Koschorreck, M., Y.T. Prairie, J. Kim, and R. Marcé. 2020. Technical note: CO2 is not like CH4 – limits of the headspace method to analyse pCO2 in water. Biogeosciences, in revision
