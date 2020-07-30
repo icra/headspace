@@ -41,26 +41,6 @@ Rheadspace.R
 
 R function to calculate pCO2 in a water sample (ppmv) using a complete headspace method accounting for the carbonate ewuilibrium in the equilibration vessel.
 
-Authors: 
-
-Rafael Marcé (Catalan Institute for Water Research - ICRA)
-
-Jihyeon Kim (Université du Québec à Montréal - UQAM)
-
-Yves T. Prairie (Université du Québec à Montréal - UQAM)
-
-Date: July 2020
-
-Copyright statement: This code is shared under GNU GENERAL PUBLIC LICENSE Version 3.
-
-Refer to the LICENSE file in the Github repository for details.
-
-Please, when using this software for scientific purposes, cite this work as a source:
-
-Koschorreck, M., Y.T. Prairie, J. Kim, and R. Marcé. 2020. Technical note: CO2 is not like CH4 – limits of the headspace method to analyse pCO2 in water. Biogeosciences, in revision
-
-Contact information: Rafael Marcé (rmarce@icra.cat)
-
 INPUT:
 
 You can either input a vector of 11 values for solving a single sample or a data frame of 11 columns and an arbitrary number of rows for batch processing of several samples.
@@ -144,6 +124,7 @@ REFERENCES
 
  Dickson, A. G., Sabine, C. L., and Christian, J. R. (2007): Guide to best practices for
  ocean CO2 measurements, PICES Special Publication 3, 191 pp.
+ 
 ####################################################################
 
 # JMP script and JMP add-in
