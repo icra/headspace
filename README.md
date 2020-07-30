@@ -20,7 +20,7 @@ Koschorreck, M., Y.T. Prairie, J. Kim, and R. Marcé. 2020. Technical note: CO2 
 
 "headspace" is a collection of R and JSL (JMP SAS) scripts to calculate pCO2 in freshwater samples using data from headspace analysis. "headspace" scripts account for the carbonate equilibrium in the equilibration vessel, a frequently disregarded issue when applying the headspace method in freshwater research. We offer a collection of tools to calculate pCO2 accounting for carbonate equilibria, and also to calculate the error associated with the commonly used headspace analysis that does not account for the carbonate equilibria. 
 
-"headspace" comes as an R script (Rheadspace.R) and a JSL script for JMP. The R script is function for command line use or scripting, while the JSL script runs within JMP as a user-friendly graphical user interface. 
+"headspace" comes as an R script (Rheadspace.R) and a JSL script for JMP (aslo in the format of a JMP add-in for user convenience). The R script is function for command line use or scripting, while the JSL script runs within JMP as a user-friendly graphical user interface. 
 
 The distribution also includes a test dataset for R (R_test_data.csv and R_test_data_with_results.csv), as well as an additional file corresponding to the data shown in Figure 4 of the paper mentioned in the section # License  
 
@@ -119,5 +119,30 @@ a data frame containing:
 ####################################################################
 
 
-# JMP script
+# JMP script and JMP add-in
 
+PLEASE, SEE THE PDF FILE IN THE REPOSITORY FOR FURTHER DETAILS
+
+The input data can be an Excel, .CSV or JMP data file containing the following input variables:
+
+    1) pCO2 of headspace before equilibration (ppmv). This value is 0 when N2 or CO2-free gas is used as headspace. If ambient air is used, its pCO2 should be measured or assumed to be close to atmospheric average (currently about 402 ppmv).
+    2) pCO2 of headspace after equilibration(ppmv).
+    3) Temperature of water during sampling (ºC).
+    4) Temperature of vessel during equilibration process (ºC).
+    5) Alkalinity (µequiv/L).
+    6) Headspace ratio (Vol(gas):Vol(water)).
+    7) Barometric pressure (kPa)
+
+Values for variables 1, 6, 7 and 8 are not required in the data file if they are constant.
+
+Load or import the input data file in JMP. Load and launch the script file. A dialog box will appear.
+
+Select or drag the data columns into the appropriate variable selection box. A choice a carbonate equilibrium equation set is given corresponding to various field sample types (freshwater, estuarine or marine, see references below). A choice of numerical solution methods is also given. The “Analytical solutions” is nearly instantaneous but can suffer minor imprecisions in extreme situations (Alk> 4000 (µequiv/L and pCO2(after equil.)<100 ppmv) inherent to double precision calculations. The “iterative solutions” is much slower but more stable in such situations. In all cases, results are added as three new columns to the data table (uncorrected pCO2, corrected pCO2, corrected [CO2]) Partial pressures are in µatm and concentrations in µmole/L. The code is available as a JSL script and as a JMP add-in. 
+
+References:
+
+Dickson, A. G., Sabine, C. L., and Christian, J. R. ( 2007): Guide to best practices for ocean CO2 measurements, PICES Special Publication 3, 191 pp.
+
+Millero, F. (1979). The thermodynamics of the carbonate system in seawater Geochimica et Cosmochimica Acta 43(10), 1651 1661. https://dx.doi.org/10.1016/0016-7037(79)90184-4.
+
+Millero, F. (2010). Carbonate constants for estuarine waters Marine and Freshwater Research 61(2), 139. https://dx.doi.org/10.1071/mf09254
