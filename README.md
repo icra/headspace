@@ -21,7 +21,7 @@ INPUT:
       You can either input a vector of 11 values for solving a single sample or a data frame of 11
       columns and an arbitrary number of rows for batch processing of several samples.
 
-      If supplying a vector for one sample, the vector should contain (in this order):
+If supplying a vector for one sample, the vector should contain (in this order):
 
         1. The ID of the sample (arbitrary test, e.g."Sample_1")
         2. mCO2 (ppmv) of the headspace "before" equilibration (e.g., zero for nitrogen)
@@ -35,10 +35,10 @@ INPUT:
        10. Set of constants for carbonate equilibrium calculations (1=Freshwater, Millero 1979; 2=Estuarine, Millero 2010; 3=Marine, Dickson et al 2007)
        11. Salinity (PSU) # Set to zero if option in 10 is set to 1.
 
-      If supplying a data frame, you can build it importing of a csv file
-      Example: dataset <- read.csv("R_test_data.csv")
-      The first row of this file must contain column names, then one row for each sample to be solved.
-      The columns names must be:
+If supplying a data frame, you can build it importing of a csv file
+Example: dataset <- read.csv("R_test_data.csv")
+The first row of this file must contain column names, then one row for each sample to be solved.
+The columns names must be:
 
         1. Sample.ID
         2. HS.mCO2.before
@@ -52,7 +52,7 @@ INPUT:
        10. Constants
        11. Salinity
 
-      For the different samples, values must be as follows:
+For the different samples, values must be as follows:
 
         Sample.ID #User defined text
         HS.mCO2.before #the pCO2 (ppmv) of the headspace "before" equilibration (e.g. zero for nitrogen)
@@ -76,6 +76,7 @@ EXAMPLE OF USE:
  pCO2 <- Rheadspace(dataset)
 
 OUTPUT: a data frame containing:
+
      1. Sample IDs
      2. mCO2 complete headspace (ppmv) # mCO2 calculated using the complete headspace method accounting for the carbonate equilibrium
      3. pCO2 complete headspace (micro-atm) # pCO2 calculated using the complete headspace method accounting for the carbonate equilibrium
