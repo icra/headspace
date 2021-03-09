@@ -7,13 +7,13 @@ Authors: Rafael Marcé (Catalan Institute for Water Research - ICRA)
          Jihyeon Kim (Université du Québec à Montréal - UQAM)
          Yves T. Prairie (Université du Québec à Montréal - UQAM)
 
-Date: December 2020
+Date: March 2021
 
 Copyright statement: This code is shared under GNU GENERAL PUBLIC LICENSE Version 3.
 Refer to the LICENSE file in the Github repository for details.
 Please, when using this software for scientific purposes, cite this work as a source:
 
-  Koschorreck, M., Y.T. Prairie, J. Kim, and R. Marcé. 2020. Technical note: CO2 is not like CH4 – limits of the headspace method to analyse pCO2 in water. Biogeosciences, in revision
+  Koschorreck, M., Y.T. Prairie, J. Kim, and R. Marcé. 2021. Technical note: CO2 is not like CH4 – limits and corrections to the headspace method to analyse pCO2 in fresh  water. Biogeosciences, 18, 1619–1627, 2021, https://doi.org/10.5194/bg-18-1619-2021
 
 Contact information: Rafael Marcé (rmarce@icra.cat)
 
