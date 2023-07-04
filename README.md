@@ -1,13 +1,13 @@
 Rheadspace.R
 
-R fun ction to calculate pCO2 in a water sample (micro-atm) using a complete headspace method accounting for the
-carbonate ewuilibrium in the equilibration vessel.
+R function to calculate pCO2 in a water sample (micro-atm) using a complete headspace method accounting for the
+carbonate equilibrium in the equilibration vessel.
 
 Authors: Rafael Marcé (Catalan Institute for Water Research - ICRA)
          Jihyeon Kim (Université du Québec à Montréal - UQAM)
          Yves T. Prairie (Université du Québec à Montréal - UQAM)
 
-Date: March 2021
+Date: March 202, bug corrected on July 2023 by Rafael Marcé, to account for inconsistences in Weiss set of parameters
 
 Copyright statement: This code is shared under GNU GENERAL PUBLIC LICENSE Version 3.
 Refer to the LICENSE file in the Github repository for details.
