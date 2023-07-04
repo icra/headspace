@@ -7,7 +7,7 @@ Authors: Rafael Marcé (Catalan Institute for Water Research - ICRA)
          Jihyeon Kim (Université du Québec à Montréal - UQAM)
          Yves T. Prairie (Université du Québec à Montréal - UQAM)
 
-Date: March 202, bug corrected on July 2023 by Rafael Marcé, to account for inconsistences in Weiss set of parameters
+Date: March 2021, bug corrected on July 2023 by Rafael Marcé, to account for inconsistences in Weiss parameters
 
 Copyright statement: This code is shared under GNU GENERAL PUBLIC LICENSE Version 3.
 Refer to the LICENSE file in the Github repository for details.
