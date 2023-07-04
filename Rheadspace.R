@@ -1,20 +1,20 @@
 #####################################################################
 # Rheadspace.R
 #
-# R fun ction to calculate pCO2 in a water sample (micro-atm) using a complete headspace method accounting for the 
-# carbonate ewuilibrium in the equilibration vessel. 
+# R function to calculate pCO2 in a water sample (micro-atm) using a complete headspace method accounting for the 
+# carbonate equilibrium in the equilibration vessel. 
 #
 # Authors: Rafael Marcé (Catalan Institute for Water Research - ICRA)
 #          Jihyeon Kim (Université du Québec à Montréal - UQAM) 
 #          Yves T. Prairie (Université du Québec à Montréal - UQAM)
 #
-# Date: December 2020
+# Date: December 2020; bug corrected July 2023 by Rafael Marcé (Weiss set of parameters)
 #
 # Copyright statement: This code is shared under GNU GENERAL PUBLIC LICENSE Version 3. 
 # Refer to the LICENSE file in the Github repository for details.
 # Please, when using this software for scientific purposes, cite this work as a source:
 #
-#   Koschorreck, M., Y.T. Prairie, J. Kim, and R. Marcé. 2020. Technical note: CO2 is not like CH4 – limits of the headspace method to analyse pCO2 in water. Biogeosciences, in revision
+#   Koschorreck, M., Y.T. Prairie, J. Kim, and R. Marcé. 2020. Technical note: CO2 is not like CH4 – limits of the headspace method to analyse pCO2 in water. Biogeosciences, 18, 1619–1627, 2021, https://doi.org/10.5194/bg-18-1619-2021
 #
 # Contact information: Rafael Marcé (rmarce@icra.cat)
 #
@@ -180,9 +180,12 @@ Rheadspace <-  function(...){
       K2=10^-(-90.18333+5143.692/(temp_eq[i]+273.15)+14.613358*log(temp_eq[i]+273.15))
       
       Kw = exp(148.9652-13847.26/(temp_eq[i]+273.15)-23.6521*log(273.15+temp_eq[i]))
-      Kh = 10^((-60.2409+93.4517*(100/(273.15+temp_eq[i]))+23.3585*log((273.15+temp_eq[i])/100))/log(10)) # mol/L/atm equilibration conditions
-      Kh2 = 10^((-60.2409+93.4517*(100/(273.15+temp_insitu[i]))+23.3585*log((273.15+temp_insitu[i])/100))/log(10)) # mol/L/atm original conditions
       
+      #Weiss contants for mol/kg·atm instead of mol/L·atm were used in the first version of the code by mistake. Correcting now to the right values in mol/L·atm
+      #Kh = 10^((-60.2409+93.4517*(100/(273.15+temp_eq[i]))+23.3585*log((273.15+temp_eq[i])/100))/log(10)) # mol/L/atm equilibration conditions
+      #Kh2 = 10^((-60.2409+93.4517*(100/(273.15+temp_insitu[i]))+23.3585*log((273.15+temp_insitu[i])/100))/log(10)) # mol/L/atm original conditions
+      Kh = 10^((-58.0931+90.5069*(100/(273.15+temp_eq[i]))+22.2940*log((273.15+temp_eq[i])/100))/log(10)) # mol/L/atm equilibration conditions
+      Kh2 = 10^((-58.0931+90.5069*(100/(273.15+temp_insitu[i]))+22.2949*log((273.15+temp_insitu[i])/100))/log(10)) # mol/L/atm original conditions
       
     } else if (c_constants == 2) {
       
@@ -202,8 +205,12 @@ Rheadspace <-  function(...){
       K2 = 10^-pK2;
       
       Kw=exp(148.9652-13847.26/(temp_eq[i]+273.15)-23.6521*log(273.15+temp_eq[i])+sqrt(Salinity[i])*(118.67/(temp_eq[i]+273.15)-5.977+1.0495*log(273.15+temp_eq[i]))-0.01615*Salinity[i])
-      Kh = exp(-60.2409 + 93.4517 * (100 / (273.15 + temp_eq[i])) + 23.3585 * log( (273.15 + temp_eq[i]) / 100 )+Salinity[i]*(0.023517-0.023656*(273.15+temp_eq[i])/100+0.0047036*((273.15+temp_eq[i])/100)^2))
-      Kh2 = exp(-60.2409 + 93.4517 * (100 / (273.15 + temp_insitu[i])) + 23.3585 * log( (273.15 + temp_insitu[i]) / 100 )+Salinity[i]*(0.023517-0.023656*(273.15+temp_insitu[i])/100+0.0047036*((273.15+temp_insitu[i])/100)^2))
+      
+      #Weiss contants for mol/kg·atm instead of mol/L·atm were used in the first version of the code by mistake. Correcting now to the right values in mol/L·atm
+      #Kh = exp(-60.2409 + 93.4517 * (100 / (273.15 + temp_eq[i])) + 23.3585 * log( (273.15 + temp_eq[i]) / 100 )+Salinity[i]*(0.023517-0.023656*(273.15+temp_eq[i])/100+0.0047036*((273.15+temp_eq[i])/100)^2))
+      #Kh2 = exp(-60.2409 + 93.4517 * (100 / (273.15 + temp_insitu[i])) + 23.3585 * log( (273.15 + temp_insitu[i]) / 100 )+Salinity[i]*(0.023517-0.023656*(273.15+temp_insitu[i])/100+0.0047036*((273.15+temp_insitu[i])/100)^2))
+      Kh = exp(-58.0931 + 90.5069 * (100 / (273.15 + temp_eq[i])) + 22.2940 * log( (273.15 + temp_eq[i]) / 100 )+Salinity[i]*(0.027766-0.025888*(273.15+temp_eq[i])/100+0.0050578*((273.15+temp_eq[i])/100)^2))
+      Kh2 = exp(-58.0931 + 90.5069 * (100 / (273.15 + temp_insitu[i])) + 22.2940 * log( (273.15 + temp_insitu[i]) / 100 )+Salinity[i]*(0.027766-0.025888*(273.15+temp_insitu[i])/100+0.0050578*((273.15+temp_insitu[i])/100)^2))
    
     } else if (c_constants == 3) {
       
@@ -213,9 +220,13 @@ Rheadspace <-  function(...){
       K2 = 10^(-417.78/ (temp_eq[i] + 273.15) - 25.9290 + 3.16967*log(temp_eq[i]+273.15)+0.01781*Salinity[i]-0.0001112*Salinity[i]^2)
       
       Kw=exp(148.9652-13847.26/(temp_eq[i]+273.15)-23.6521*log(273.15+temp_eq[i])+sqrt(Salinity[i])*(118.67/(temp_eq[i]+273.15)-5.977+1.0495*log(273.15+temp_eq[i]))-0.01615*Salinity[i])
-      Kh = exp(-60.2409 + 93.4517 * (100 / (273.15 + temp_eq[i])) + 23.3585 * log( (273.15 + temp_eq[i]) / 100 )+Salinity[i]*(0.023517-0.023656*(273.15+temp_eq[i])/100+0.0047036*((273.15+temp_eq[i])/100)^2))
-      Kh2 = exp(-60.2409 + 93.4517 * (100 / (273.15 + temp_insitu[i])) + 23.3585 * log( (273.15 + temp_insitu[i]) / 100 )+Salinity[i]*(0.023517-0.023656*(273.15+temp_insitu[i])/100+0.0047036*((273.15+temp_insitu[i])/100)^2))
       
+      #Weiss contants for mol/kg·atm instead of mol/L·atm were used in the first version of the code by mistake. Correcting now to the right values in mol/L·atm
+      #Kh = exp(-60.2409 + 93.4517 * (100 / (273.15 + temp_eq[i])) + 23.3585 * log( (273.15 + temp_eq[i]) / 100 )+Salinity[i]*(0.023517-0.023656*(273.15+temp_eq[i])/100+0.0047036*((273.15+temp_eq[i])/100)^2))
+      #Kh2 = exp(-60.2409 + 93.4517 * (100 / (273.15 + temp_insitu[i])) + 23.3585 * log( (273.15 + temp_insitu[i]) / 100 )+Salinity[i]*(0.023517-0.023656*(273.15+temp_insitu[i])/100+0.0047036*((273.15+temp_insitu[i])/100)^2))
+      Kh = exp(-58.0931 + 90.5069 * (100 / (273.15 + temp_eq[i])) + 22.2940 * log( (273.15 + temp_eq[i]) / 100 )+Salinity[i]*(0.027766-0.025888*(273.15+temp_eq[i])/100+0.0050578*((273.15+temp_eq[i])/100)^2))
+      Kh2 = exp(-58.0931 + 90.5069 * (100 / (273.15 + temp_insitu[i])) + 22.2940 * log( (273.15 + temp_insitu[i]) / 100 )+Salinity[i]*(0.027766-0.025888*(273.15+temp_insitu[i])/100+0.0050578*((273.15+temp_insitu[i])/100)^2))
+   
     } else {
       print(i)
       stop("Option for carbonate equilibrium constants should be a number between 1 and 3", call.=FALSE)
