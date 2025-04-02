@@ -8,7 +8,7 @@
 #          Jihyeon Kim (Université du Québec à Montréal - UQAM) 
 #          Yves T. Prairie (Université du Québec à Montréal - UQAM)
 #
-# Date: December 2020; bug corrected July 2023 by Rafael Marcé (Weiss set of parameters)
+# Date: December 2020; bug corrected July 2023 by Rafael Marcé (Weiss set of parameters), corrected in April 2025 by Rafael Marcé for a bug (missing indexation ("[i]") in the loop, for c_constants)
 #
 # Copyright statement: This code is shared under GNU GENERAL PUBLIC LICENSE Version 3. 
 # Refer to the LICENSE file in the Github repository for details.
@@ -16,7 +16,7 @@
 #
 #   Koschorreck, M., Y.T. Prairie, J. Kim, and R. Marcé. 2020. Technical note: CO2 is not like CH4 – limits of the headspace method to analyse pCO2 in water. Biogeosciences, 18, 1619–1627, 2021, https://doi.org/10.5194/bg-18-1619-2021
 #
-# Contact information: Rafael Marcé (rmarce@icra.cat)
+# Contact information: Rafael Marcé (rmarce@ceab.csic.es)
 #
 # INPUT: 
 #       You can either input a vector of 11 values for solving a single sample or a data frame of 11
@@ -172,7 +172,7 @@ Rheadspace <-  function(...){
     # Solubility coefficients from Weiss (1974) with Sal=0 for freshwater option
     # Dissociation of water from Dickson and Riley (1979)
     
-    if (c_constants == 1) {
+    if (c_constants[i] == 1) {
     
       #Millero, F. (1979). The thermodynamics of the carbonate system in seawater
       #Geochimica et Cosmochimica Acta 43(10), 1651 1661.  
@@ -187,7 +187,7 @@ Rheadspace <-  function(...){
       Kh = 10^((-58.0931+90.5069*(100/(273.15+temp_eq[i]))+22.2940*log((273.15+temp_eq[i])/100))/log(10)) # mol/L/atm equilibration conditions
       Kh2 = 10^((-58.0931+90.5069*(100/(273.15+temp_insitu[i]))+22.2949*log((273.15+temp_insitu[i])/100))/log(10)) # mol/L/atm original conditions
       
-    } else if (c_constants == 2) {
+    } else if (c_constants[i] == 2) {
       
       #Millero, F. (2010). Carbonate constants for estuarine waters Marine and Freshwater
       #Research 61(2), 139. As amended by Orr et al. 2015.
@@ -212,7 +212,7 @@ Rheadspace <-  function(...){
       Kh = exp(-58.0931 + 90.5069 * (100 / (273.15 + temp_eq[i])) + 22.2940 * log( (273.15 + temp_eq[i]) / 100 )+Salinity[i]*(0.027766-0.025888*(273.15+temp_eq[i])/100+0.0050578*((273.15+temp_eq[i])/100)^2))
       Kh2 = exp(-58.0931 + 90.5069 * (100 / (273.15 + temp_insitu[i])) + 22.2940 * log( (273.15 + temp_insitu[i]) / 100 )+Salinity[i]*(0.027766-0.025888*(273.15+temp_insitu[i])/100+0.0050578*((273.15+temp_insitu[i])/100)^2))
    
-    } else if (c_constants == 3) {
+    } else if (c_constants[i] == 3) {
       
       #Dickson, A. G., Sabine, C. L., and Christian, J. R. (2007): Guide to best practices for
       #ocean CO2 measurements, PICES Special Publication 3, 191 pp.
